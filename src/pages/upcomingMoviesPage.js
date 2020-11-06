@@ -1,33 +1,23 @@
-import React, { useState, useEffect } from "react";
-import StubAPI from "../api/stubAPI";
+import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage'
-import { getMovies, getUpcoming } from "../api/tmdb-api";
+import {UpcomingMoviesContext} from '../contexts/moviesContext'
+import AddToFavoritesButton from '../components/buttons/addToFavorites'
 
-const UpcomingMoviesListPage = () => {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    getUpcoming().then(movies => {
-      setMovies(movies);
-    });
-  }, []);
-
-  const addToFavorites = movieId => {
-    setMovies(movies => {
-      const index = movies.map(m => m.id).indexOf(movieId);
-      StubAPI.add(movies[index]);
-      let newMoviesState = [...movies]
-      newMoviesState.splice(index, 1);
-      return newMoviesState;
-    });
-  };
+const UpcomingMoviesPage = () => {
+  const context = useContext(UpcomingMoviesContext);
+  const movies = context.movies.filter((m) => {  // New
+    return !("favorite" in m);
+  });
 
   return (
-      <PageTemplate
-        title='Discover Movies'
-        movies={movies}
-        buttonHandler={addToFavorites}
-      />
+    <PageTemplate
+      title="No. Movies"
+      movies={movies}  /* Changed */
+      action={(movie) => {
+        return <AddToFavoritesButton movie={movie} />;
+      }}
+    />
   );
 };
 
-export default UpcomingMoviesListPage;
+export default UpcomingMoviesPage;

@@ -1,7 +1,8 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies } from "../api/tmdb-api";
+import { getMovies, getUpcomingMovies } from "../api/tmdb-api";
 
 export const MoviesContext = createContext(null);
+export const UpcomingMoviesContext = createContext(null);
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -13,13 +14,20 @@ const reducer = (state, action) => {
       };
     case "load":
       return { movies: action.payload.movies };
-    case "add-review":
-      // Completed in next section
+      case "add-review":
+        return {
+          movies: state.movies.map((m) =>
+            m.id === action.payload.movie.id
+              ? { ...m, review: action.payload.review }
+              : m
+          ),
+        };
       break;
     default:
       return state;
   }
 };
+
 
 const MoviesContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, { movies: [] });
@@ -30,8 +38,8 @@ const MoviesContextProvider = (props) => {
   };
 
   const addReview = (movie, review) => {
-     // Completed in next section
-  };
+    dispatch({ type: "add-review", payload: { movie, review } });
+  }; 
   useEffect(() => {
     getMovies().then((movies) => {
       dispatch({ type: "load", payload: { movies } });
@@ -53,4 +61,36 @@ const MoviesContextProvider = (props) => {
   );
 };
 
-export default MoviesContextProvider;
+const UpcomingMoviesContextProvider = (props) => {
+  const [state, dispatch] = useReducer(reducer, { movies: [] });
+
+  const addToFavorites = (movieId) => {
+    const index = state.movies.map((m) => m.id).indexOf(movieId);
+    dispatch({ type: "add-favorite", payload: { movie: state.movies[index] } });
+  };
+
+  const addReview = (movie, review) => {
+     // Completed in next section
+  };
+  useEffect(() => {
+    getUpcomingMovies().then((movies) => {
+      dispatch({ type: "load", payload: { movies } });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <UpcomingMoviesContext.Provider
+      value={{
+        movies: state.movies,
+        favorites: state.favorites,
+        addToFavorites: addToFavorites,
+        addReview: addReview,
+      }}
+    >
+      {props.children}
+    </UpcomingMoviesContext.Provider>
+  );
+};
+
+export {MoviesContextProvider as default, UpcomingMoviesContextProvider};

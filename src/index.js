@@ -1,4 +1,4 @@
-import SiteHeader from './components/siteHeader'
+import UpdatedSiteHeader from './components/updatedSiteHeader'
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"    // CHANGED
@@ -17,7 +17,7 @@ const App = () => {
   return (
     <BrowserRouter>
     <div className="jumbotron">
-          <SiteHeader />      {/* New Header  */}
+          <UpdatedSiteHeader />      {/* New Header  */}
           <div className="container-fluid">
           <MoviesContextProvider>
           <GenresContextProvider>    {/* NEW */}

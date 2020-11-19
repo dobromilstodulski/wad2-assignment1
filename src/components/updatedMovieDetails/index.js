@@ -3,37 +3,82 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Media from 'react-bootstrap/Media'
 
 export default ({ movie }) => {
     return (
         <>
   <Card>
-    <Card.Body>
-      <Card.Text>
-        <h4>{movie.title}</h4>
-        <span>{movie.original_title} | {movie.original_language} | {movie.runtime} mins |{movie.release_date}</span>
-      </Card.Text>
-      <Container>
-          <Row>
-              <Col>
-      <Card.Img variant="top" src={movie.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-            : "./film-poster-placeholder.png"}/>
-            </Col>
-            <Col>
-                {movie.video}
-            </Col>
-            </Row>
-    </Container>
-    </Card.Body>
-  </Card>
-  <br/>
-  <Card>
-    <Card.Body>
-      <Card.Text>
-        <h4> Overview </h4>
-        <p> {movie.overview} </p>
-        <ul className="list-group list-group-horizontal">
+  <Card.Body>
+  <Media>
+  <img
+    width={200}
+    height={300}
+    className="mr-3"
+    src={movie.poster_path
+        ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+        : "./film-poster-placeholder.png"}
+    alt={movie.title}
+  />
+  <Media.Body>
+    <h1> {movie.title} </h1>
+    <p> {movie.original_title} ({movie.status}) | {movie.tagline} </p>
+    <h3>Overview</h3>
+    <p>
+      {movie.overview}
+    </p>
+    <ul className="list-group list-group-horizontal">
+        <li key="ruh" className="list-group-item list-group-item-dark">
+          Runtime (min.)
+        </li>
+        <li key="rut" className="list-group-item ">
+          {movie.runtime}
+        </li>
+        <li key="rdh" className="list-group-item list-group-item-dark">
+          Release Date
+        </li>
+        <li key="rdv" className="list-group-item ">
+          {movie.release_date}
+        </li>
+      </ul>
+
+      <ul className="list-group list-group-horizontal">
+        <li key="pop" className="list-group-item list-group-item-dark">
+          Popularity
+        </li>
+        <li key="poph" className="list-group-item ">
+          {movie.popularity}
+        </li>
+        <li key="rdh" className="list-group-item list-group-item-dark">
+          Vote Count
+        </li>
+        <li key="rdv" className="list-group-item ">
+          {movie.vote_count}
+        </li>
+        <li key="rdh" className="list-group-item list-group-item-dark">
+          Vote Average
+        </li>
+        <li key="rdv" className="list-group-item ">
+          {movie.vote_average}
+        </li>
+      </ul>
+
+      <ul className="list-group list-group-horizontal">
+        <li key="pop" className="list-group-item list-group-item-dark">
+          Revenue
+        </li>
+        <li key="poph" className="list-group-item ">
+          {movie.revenue}
+        </li>
+        <li key="rdh" className="list-group-item list-group-item-dark">
+          Budget
+        </li>
+        <li key="rdv" className="list-group-item ">
+          {movie.budget}
+        </li>
+      </ul>
+
+      <ul className="list-group list-group-horizontal">
         <li key="gh" className="list-group-item list-group-item-dark">
           Genres
         </li>
@@ -52,7 +97,7 @@ export default ({ movie }) => {
             {lang.name}
           </li>
         ))}
-      </ul>
+        </ul>
       <ul className="list-group list-group-horizontal">
         <li key="pch" className="list-group-item list-group-item-dark">
           Production Companies
@@ -62,8 +107,6 @@ export default ({ movie }) => {
             {pc.name}
           </li>
         ))}
-      </ul>
-      <ul className="list-group list-group-horizontal">
         <li key="pch" className="list-group-item list-group-item-dark">
           Production Countries
         </li>
@@ -73,9 +116,10 @@ export default ({ movie }) => {
           </li>
         ))}
       </ul>
-      </Card.Text>
-    </Card.Body>
-  </Card>
+  </Media.Body>
+</Media>
+</Card.Body>
+</Card>
 </>
     );
   };

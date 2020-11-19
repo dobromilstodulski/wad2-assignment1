@@ -4,6 +4,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Media from 'react-bootstrap/Media'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../../globals/fontawesome";
 
 export default ({ movie }) => {
     return (
@@ -22,7 +24,7 @@ export default ({ movie }) => {
   />
   <Media.Body>
     <h1> {movie.title} </h1>
-    <p> {movie.original_title} ({movie.status}) | {movie.tagline} </p>
+    <p> {movie.original_title} ({movie.status}) | {movie.tagline} | {movie.original_language} | <a href={movie.homepage}> <FontAwesomeIcon icon={["fas", "home"]} size="1x" /> </a> </p>
     <h3>Overview</h3>
     <p>
       {movie.overview}

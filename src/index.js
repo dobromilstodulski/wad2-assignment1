@@ -6,6 +6,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
 import UpdatedHomePage from "./pages/updatedHomePage";
 import MoviePage from './pages/movieDetailsPage'
+import UpdatedMoviePage from './pages/updatedMovieDetailsPage'
 import FavoriteMoviesPage from './pages/favouritesMoviesPage' 
 import WatchListMoviesPage from './pages/watchListMoviesPage'      // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
@@ -28,7 +29,7 @@ const App = () => {
               <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
               <Route exact path="/movies/watchlist" component={WatchListMoviesPage} />
               <Route exact path="/movies/upcoming" component={UpcomingMoviesListPage} />
-              <Route path="/movies/:id" component={MoviePage} />
+              <Route path="/movies/:id" component={UpdatedMoviePage} />
               <Route path="/" component={UpdatedHomePage} />
               <Redirect from="*" to="/" />
           </Switch>

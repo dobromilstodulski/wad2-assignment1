@@ -19,9 +19,9 @@ const UpdatedMovieCard = ({movie, action}) => {
         <Card.Title>{movie.title}</Card.Title>
     <Card.Text>
       <FontAwesomeIcon icon={["fas", "calendar"]} />
-      <span>{movie.release_date}</span>
+      <span> {movie.release_date}</span>
       <FontAwesomeIcon icon={["fas", "star"]} />
-      <span>{movie.vote_average}</span>
+      <span> {movie.vote_average}</span>
     </Card.Text>
   </Card.Body>
 </Card>

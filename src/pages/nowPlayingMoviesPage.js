@@ -3,9 +3,9 @@ import PageTemplate from '../components/updatedTemplateMovieListPage'
 import {MoviesContext} from '../contexts/moviesContext'
 import AddToFavoritesButton from '../components/buttons/addToFavorites'
 
-const LatestMoviesPage = () => {
+const NowPlayingMoviesPage = () => {
   const context = useContext(MoviesContext);
-  const movies = context.latest;
+  const movies = context.nowplaying;
 
   return (
     <PageTemplate
@@ -18,4 +18,4 @@ const LatestMoviesPage = () => {
   );
 };
 
-export default LatestMoviesPage;
+export default NowPlayingMoviesPage;

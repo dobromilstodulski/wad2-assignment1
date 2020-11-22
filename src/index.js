@@ -44,11 +44,7 @@ const App = () => {
           </Switch>
           </GenresContextProvider>
           </MoviesContextProvider>     {/* NEW */}
-      </div>
-          <TVContextProvider> 
-            <Switch>
-            </Switch>
-          </TVContextProvider> 
+      </div> 
     </div>
   </BrowserRouter>
   );

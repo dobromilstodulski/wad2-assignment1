@@ -5,6 +5,39 @@ export const TVContext = createContext(null);
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "add-favorite":
+      return {
+        tvshows: state.tvshows.map((m) =>
+          m.id === action.payload.tv.id ? { ...m, favorite: true } : m
+        ),
+        latest: [...state.latest],
+        popular: [...state.toprated],
+        airingtoday: [...state.popular],
+        ontheair: [...state.nowplaying],
+        toprated: [...state.toprated],
+      };
+      case "add-favorite-latest":
+      return {
+        latest: state.latest.map((m) =>
+          m.id === action.payload.tv.id ? { ...m, favorite: true } : m
+        ),
+        tvshows: [...state.tvshows],
+        popular: [...state.toprated],
+        airingtoday: [...state.popular],
+        ontheair: [...state.nowplaying],
+        toprated: [...state.toprated],
+      };
+      case "add-favorite-popular":
+      return {
+        popular: state.popular.map((m) =>
+          m.id === action.payload.tv.id ? { ...m, favorite: true } : m
+        ),
+        latest: [...state.latest],
+        tvshows: [...state.tvshows],
+        airingtoday: [...state.popular],
+        ontheair: [...state.nowplaying],
+        toprated: [...state.toprated],
+      };
     case "load":
         return { load: action.payload.tv };
     case "load-latest":

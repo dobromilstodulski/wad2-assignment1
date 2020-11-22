@@ -5,7 +5,9 @@ import AddToFavoritesButton from '../components/buttons/addToFavorites'
 
 const TopRatedMoviesPage = () => {
   const context = useContext(MoviesContext);
-  const movies = context.toprated;
+  const movies = context.toprated.filter((m) => {  // New
+    return !("favorite" in m);
+  });
 
   return (
     <PageTemplate

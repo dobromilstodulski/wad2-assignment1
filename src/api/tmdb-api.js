@@ -166,7 +166,7 @@ export const getMovies = () => {
       .then(json => json.results);
   };
 
-  export const getTV = id => {
+  export const getTVShow = id => {
     return fetch(
         `https://api.themoviedb.org/3/tv/{tv_id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     )

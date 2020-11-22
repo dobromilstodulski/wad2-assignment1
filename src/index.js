@@ -4,18 +4,19 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"    // CHANGED
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import UpdatedHomePage from "./pages/updatedHomePage";
-import UpdatedMoviePage from './pages/updatedMovieDetailsPage'
-import FavoriteMoviesPage from './pages/favouritesMoviesPage' 
-import WatchListMoviesPage from './pages/watchListMoviesPage'      // NEW
+import UpdatedMoviePage from './pages/updatedMovieDetailsPage';
+import FavoriteMoviesPage from './pages/favouritesMoviesPage';
+import WatchListMoviesPage from './pages/watchListMoviesPage';      // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
 import UpcomingMoviesListPage from './pages/upcomingMoviesPage';
-import AddMovieReviewPage from './pages/addMovieReviewPage'
+import AddMovieReviewPage from './pages/addMovieReviewPage';
 import GenresContextProvider from "./contexts/genresContext";
 import MoviesContextProvider from "./contexts/moviesContext";
+import TVContextProvider from "./contexts/tvContext";
 import LatestMoviesPage from "./pages/latestMoviesPage";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import NowPlayingMoviesPage from "./pages/nowPlayingMoviesPage";
-import PopularMoviesPage from "./pages/popularMoviesPage"
+import PopularMoviesPage from "./pages/popularMoviesPage";
 
 
 
@@ -26,7 +27,7 @@ const App = () => {
           <UpdatedSiteHeader />      {/* New Header  */}
           <div className="container-fluid">
           <MoviesContextProvider>
-          <GenresContextProvider>    {/* NEW */}
+          <GenresContextProvider>   {/* NEW */}
             <Switch>
               <Route exact path="/reviews/form" component={AddMovieReviewPage} />
               <Route path="/reviews/:id" component={MovieReviewPage} />
@@ -44,6 +45,10 @@ const App = () => {
           </GenresContextProvider>
           </MoviesContextProvider>     {/* NEW */}
       </div>
+          <TVContextProvider> 
+            <Switch>
+            </Switch>
+          </TVContextProvider> 
     </div>
   </BrowserRouter>
   );

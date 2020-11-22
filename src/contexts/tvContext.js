@@ -158,7 +158,7 @@ useEffect(() => {
   return (
     <TVContext.Provider
       value={{
-        tv: state.tv,
+        tvshows: state.tvshows,
         latest: state.latest,
         popular: state.popular,
         airingtoday: state.airingtoday,

@@ -117,7 +117,7 @@ const MoviesContextProvider = (props) => {
     const indexLatest = state.latest.map((m) => m.id).indexOf(movieId);
     dispatch({ type: "add-favorite-latest", payload: { movie: state.latest[indexLatest] } });
     const indexTopRated = state.toprated.map((m) => m.id).indexOf(movieId);
-    dispatch({ type: "add-favorite=toprated", payload: { movie: state.toprated[indexTopRated] } });
+    dispatch({ type: "add-favorite-toprated", payload: { movie: state.toprated[indexTopRated] } });
     const indexPopular = state.popular.map((m) => m.id).indexOf(movieId);
     dispatch({ type: "add-favorite-popular", payload: { movie: state.popular[indexPopular] } });
   };

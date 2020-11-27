@@ -122,6 +122,24 @@ export default ({ movie }) => {
 </Media>
 </Card.Body>
 </Card>
+{movie.credits.cast.map(cast => (
+  <Row md={4}>
+    <Card style={{ width: '18rem' }}>
+    <Card.Img variant="top" src={cast.profile_path
+              ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
+              : "./film-poster-placeholder.png"} />
+    <Card.Body>
+          <Card.Title>{cast.name} ({cast.original_name})</Card.Title>
+      <Card.Text>
+        <FontAwesomeIcon icon={["fas", "calendar"]} />
+        <span> {cast.popularity}</span>
+        <FontAwesomeIcon icon={["fas", "star"]} />
+        <span> {cast.character}</span>
+      </Card.Text>
+    </Card.Body>
+   </Card>
+   </Row>
+))}
 </>
     );
   };

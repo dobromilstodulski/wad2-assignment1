@@ -5,9 +5,10 @@ import UpdatedPageTemplate from "../components/updatedTemplateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import useMovie from "../hooks/useMovie";
 
+
 const UpdatedMoviePage = props => {
   const { id } = props.match.params;
-  const [movie] = useMovie(id)  // NEW
+  const [movie] = useMovie(id) // NEW
   return (
     <>
     {movie ? (

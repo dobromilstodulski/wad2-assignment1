@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {getMovie} from '../api/tmdb-api'
 
-const useMovie = id => {
+ const useMovie = id => {
   const [movie, setMovie] = useState(null);
   useEffect(() => {
     getMovie(id).then(movie => {
@@ -11,4 +11,4 @@ const useMovie = id => {
   return [movie, setMovie];
 };
 
-export default useMovie
+export default useMovie;

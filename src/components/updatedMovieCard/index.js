@@ -23,6 +23,9 @@ const UpdatedMovieCard = ({movie, action}) => {
       <FontAwesomeIcon icon={["fas", "star"]} />
       <span> {movie.vote_average}</span>
     </Card.Text>
+    <div className="card-footer">
+           {action(movie)}
+        </div>
   </Card.Body>
 </Card>
   );

@@ -10,7 +10,7 @@ export const getMovies = () => {
   
   export const getMovie = id => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&append_to_response=credits`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&append_to_response=credits,images,recommendations,similar,videos,watch/providers`
     ).then(res => res.json());
   };
   
@@ -35,48 +35,6 @@ export const getMovies = () => {
   export const getUpcomingMovies = () => {
     return fetch(
         `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
-  };
-
-  // New additions //
-
-  export const getSimilarMovies = id => {
-    return fetch(
-        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
-  };
-
-  export const getRecommendations = id => {
-    return fetch(
-        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
-  };
-
-  export const getVideos = id => {
-    return fetch(
-        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
-  };
-
-  export const getImages = id => {
-    return fetch(
-        `https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-    )
-      .then(res => res.json())
-      .then(json => json.results);
-  };
-
-  export const getCredits = id => {
-    return fetch(
-        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     )
       .then(res => res.json())
       .then(json => json.results);

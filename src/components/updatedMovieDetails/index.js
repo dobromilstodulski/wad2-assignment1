@@ -3,14 +3,46 @@ import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import Media from 'react-bootstrap/Media';
 import Row from 'react-bootstrap/Row';
+import Tab from 'react-bootstrap/Tab';
+import Col from 'react-bootstrap/Col';
+import Nav from 'react-bootstrap/Nav';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../globals/fontawesome";
-import MovieCast from "../movieCast"
 
 export default ({ movie }) => {
     return (
         <>
-  <Card>
+  <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+  <Row>
+    <Col sm={3}>
+      <Nav variant="pills" className="flex-column">
+        <Nav.Item>
+          <Nav.Link eventKey="first">Movie Details</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="second">Movie Cast</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="third">Movie Crew</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="fourth">Movie Trailers</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="fifth">Movie Images</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="sixth">Similar Movies</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="seventh">Recommendations</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Col>
+    <Col sm={9}>
+      <Tab.Content>
+        <Tab.Pane eventKey="first">
+        <Card>
   <Card.Body>
   <Media>
   <img
@@ -122,8 +154,9 @@ export default ({ movie }) => {
 </Media>
 </Card.Body>
 </Card>
-<div />
-<h1> Cast </h1>
+        </Tab.Pane>
+        <Tab.Pane eventKey="second">
+        <h1> Cast </h1>
 <Row md="4">{movie.credits.cast.map(cast => (
     <Card style={{ width: '10rem' }}>
     <Card.Img variant="top" src={cast.profile_path
@@ -141,7 +174,9 @@ export default ({ movie }) => {
    </Card>
     ))}
     </Row>
-    <div />
+        </Tab.Pane>
+        <Tab.Pane eventKey="third">
+        <div />
     <h1> Crew </h1>
     <Row md="4">{movie.credits.crew.map(crew => (
     <Card style={{ width: '10rem' }}>
@@ -160,17 +195,19 @@ export default ({ movie }) => {
    </Card>
     ))}
     </Row>
-    <div />
+        </Tab.Pane>
+        <Tab.Pane eventKey="fourth">
+        <div />
     <h1> Videos </h1>
     <Row md="4">{movie.videos.results.map(videos => (
     <Card style={{ width: '10rem' }}>
-    <iframe width="285" height="300"
+    <iframe width="215" height="300"
     src={videos.key ? `https://www.youtube.com/embed/${videos.key}` : "null"}>
-
     </iframe>
-    <Card.Link href={videos.key ? `https://www.youtube.com/watch?v=${videos.key}` : "null"}>Watch The Trailer Here!</Card.Link>
     <Card.Body>
+          <Link href={videos.key ? `https://www.youtube.com/watch?v=${videos.key}` : "null"}>
           <Card.Title>{videos.name}</Card.Title>
+          </Link>
       <Card.Text>
         <FontAwesomeIcon icon={["fas", "calendar"]} />
         <span> {videos.type}</span>
@@ -181,7 +218,9 @@ export default ({ movie }) => {
    </Card>
     ))}
     </Row>
-    <div />
+        </Tab.Pane>
+        <Tab.Pane eventKey="fifth">
+        <div />
     <h1> Images </h1>
     <Row md="4">{movie.images.backdrops.map(posters => (
     <Card style={{ width: '10rem' }}>
@@ -200,7 +239,9 @@ export default ({ movie }) => {
    </Card>
     ))}
     </Row>
-    <div />
+        </Tab.Pane>
+        <Tab.Pane eventKey="sixth">
+        <div />
     <h1> Similar Movies</h1>
     <Row md="4">{movie.similar.results.map(s => (
     <Card style={{ width: '10rem' }}>
@@ -221,7 +262,9 @@ export default ({ movie }) => {
    </Card>
     ))}
     </Row>
-    <div />
+        </Tab.Pane>
+        <Tab.Pane eventKey="seventh">
+        <div />
     <h1> Recommendations </h1>
     <Row md="4">{movie.recommendations.results.map(r => (
     <Card style={{ width: '10rem' }}>
@@ -242,6 +285,12 @@ export default ({ movie }) => {
    </Card>
     ))}
     </Row>
+        </Tab.Pane>
+
+      </Tab.Content>
+    </Col>
+  </Row>
+</Tab.Container>
 </>
-    );
-  };
+  );
+};

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
+import Button from 'react-bootstrap/Button'
 
 const AddToFavoriteButton = ({ movie }) => {
   const context = useContext(MoviesContext);
@@ -9,13 +10,13 @@ const AddToFavoriteButton = ({ movie }) => {
     context.addToFavorites(movie.id);
   };
   return (
-    <button
-      type="button"
-      className="btn w-100 btn-primary"
+    <Button
+      variant="primary"
+      size="mb" block
       onClick={handleAddToFavorite}
     >
       Add to Favorites
-    </button>
+    </Button>
   );
 };
 

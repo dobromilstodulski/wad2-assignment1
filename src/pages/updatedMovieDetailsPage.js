@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Route, withRouter } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 import UpdatedMovieDetails from "../components/updatedMovieDetails";
 import UpdatedPageTemplate from "../components/updatedTemplateMoviePage";
 import MovieReviews from "../components/movieReviews";
@@ -20,17 +21,21 @@ const UpdatedMoviePage = props => {
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/reviews") ? (
               <Link
-                className="btn btn-primary btn-block active"
                 to={`/movies/${id}/reviews`}
               >
+                <Button variant="primary"
+                size="mb" block>
                 Show Reviews (Extracts)
+                </Button>
               </Link>
             ) : (
               <Link
-                className="btn btn-primary btn-block active"
                 to={`/movies/${id}`}
               >
+                <Button variant="primary"
+                size="mb" block>
                 Hide Reviews 
+                </Button>
               </Link>
             )}
           </div>

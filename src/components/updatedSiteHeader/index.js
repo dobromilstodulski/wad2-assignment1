@@ -20,6 +20,7 @@ const UpdatedSiteHeader = () => {
     </Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="/movies/upcoming">Upcoming</Nav.Link>
+      <Nav.Link href="/movies/toprated">Top Rated</Nav.Link>
       <Nav.Link href="/movies/favorites">Favorites</Nav.Link>
       <Nav.Link href="/movies/watchlist">Watch List</Nav.Link>
     </Nav>

@@ -14,9 +14,11 @@ const UpdatedMoviePage = props => {
     <>
     {movie ? (
       <>
+        <br/>
         <UpdatedPageTemplate movie={movie}>
           <UpdatedMovieDetails movie={movie} />
         </UpdatedPageTemplate>
+        <br/>
         <div className="row">
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/reviews") ? (

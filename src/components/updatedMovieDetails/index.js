@@ -167,9 +167,9 @@ export default ({ movie }) => {
     <Card.Body>
           <Card.Title>{cast.name}</Card.Title>
       <Card.Text>
-        <FontAwesomeIcon icon={["fas", "calendar"]} />
-        <span> {cast.popularity}</span>
         <FontAwesomeIcon icon={["fas", "star"]} />
+        <span> {cast.popularity}</span>
+        <FontAwesomeIcon icon={["fas", "male"]} />
         <span> {cast.character}</span>
       </Card.Text>
     </Card.Body>

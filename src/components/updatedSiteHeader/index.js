@@ -51,7 +51,7 @@ const UpdatedSiteHeader = () => {
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" id="input" />
-      <Button variant="outline-info" id="search" onClick={this.findMovies()}>Search</Button>
+      <Button variant="outline-info" id="search">Search</Button>
     </Form>
   </Navbar>
   );

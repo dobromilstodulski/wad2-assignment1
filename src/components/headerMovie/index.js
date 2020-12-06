@@ -10,7 +10,7 @@ const MovieHeader = ({ movie }) => {
           {movie.title}
           {"  "}
           <a href={movie.homepage}>
-            <FontAwesomeIcon icon={["fas", "home"]} size="1x" />
+          <FontAwesomeIcon icon={["fas", "home"]} size="1x" />
           </a>
         </h2>
       </div>

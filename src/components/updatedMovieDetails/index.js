@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../globals/fontawesome";
+import "./movieDetails.css"
 
 export default ({ movie }) => {
     return (
@@ -169,7 +170,7 @@ export default ({ movie }) => {
       <Card.Text>
         <FontAwesomeIcon icon={["fas", "star"]} />
         <span> {cast.popularity}</span>
-        <FontAwesomeIcon icon={["fas", "male"]} />
+        <FontAwesomeIcon icon={["fas", "user"]} />
         <span> {cast.character}</span>
       </Card.Text>
     </Card.Body>
@@ -188,9 +189,9 @@ export default ({ movie }) => {
     <Card.Body>
           <Card.Title>{crew.name}</Card.Title>
       <Card.Text>
-        <FontAwesomeIcon icon={["fas", "calendar"]} />
-        <span> {crew.popularity}</span>
         <FontAwesomeIcon icon={["fas", "star"]} />
+        <span> {crew.popularity}</span>
+        <FontAwesomeIcon icon={["fas", "user"]} />
         <span> {crew.job}</span>
       </Card.Text>
     </Card.Body>
@@ -207,13 +208,12 @@ export default ({ movie }) => {
     src={videos.key ? `https://www.youtube.com/embed/${videos.key}` : "null"}>
     </iframe>
     <Card.Body>
-          <Link href={videos.key ? `https://www.youtube.com/watch?v=${videos.key}` : "null"}>
+          <Card.Text> <a href = {`https://www.youtube.com/watch?v=${videos.key}`}> Watch The Video Here! </a>  </Card.Text>
           <Card.Title>{videos.name}</Card.Title>
-          </Link>
       <Card.Text>
-        <FontAwesomeIcon icon={["fas", "calendar"]} />
+        <FontAwesomeIcon icon={["fas", "film"]} />
         <span> {videos.type}</span>
-        <FontAwesomeIcon icon={["fas", "star"]} />
+        <FontAwesomeIcon icon={["fas", "window-restore"]} />
         <span> {videos.site}</span>
       </Card.Text>
     </Card.Body>

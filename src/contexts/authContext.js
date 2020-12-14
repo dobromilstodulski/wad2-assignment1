@@ -1,33 +1,23 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
-import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"  
+import React, { useEffect, useState, createContext } from "react";
+import Firebase from "../components/fireBase/index";
 
+export const AuthContext =createContext(null);
 
-export const AuthContext = createContext(null);
+export const AuthContextProvider = ( props ) => {
+  const [currentUser, setCurrentUser] = useState(null);
 
-const AuthContextProvider = (props) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+  useEffect(() => {
+    Firebase.auth().onAuthStateChanged(setCurrentUser);
+  }, []);
 
-    const authenticate = (username, password) => {
-        username = "user1";  
-        password = "pass1";
-        return setIsAuthenticated === true;
-    };
-
-    const signout = () => {
-        return setIsAuthenticated === false;
-    }
-
-    return (
-        <AuthContext.Provider
-         value={{
-             isAuthenticated,
-             authenticate,
-             signout,
-         }}
-         >
-             {props.children}
-         </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider
+      value={{
+        currentUser
+      }}
+    >
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthContextProvider;

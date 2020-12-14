@@ -12,7 +12,8 @@ import WatchListMoviesPage from './pages/watchListMoviesPage';      // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
 import UpdatedUpcomingMoviesListPage from './pages/updatedUpcomingMoviesPage';
 import TopRatedMoviesPage from './pages/topRatedMoviesPage';
-import LoginPage from "./pages/loginPage";
+import Login from "./pages/loginPage";
+import Register from "./pages/registerPage";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import GenresContextProvider from "./contexts/genresContext";
 import MoviesContextProvider from "./contexts/moviesContext";
@@ -21,11 +22,11 @@ import MoviesContextProvider from "./contexts/moviesContext";
 
 const App = () => {
   return (
+    <AuthContextProvider>
     <BrowserRouter>
     <div className="jumbotron">
           <UpdatedSiteHeader />      {/* New Header  */}
           <div className="container-fluid">
-          <AuthContextProvider>
           <MoviesContextProvider>
           <GenresContextProvider>  {/* NEW */}
             <Switch>
@@ -35,17 +36,18 @@ const App = () => {
               <PrivateRoute exact path="/movies/watchlist" component={WatchListMoviesPage} />
               <Route exact path="/movies/upcoming" component={UpdatedUpcomingMoviesListPage} />
               <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
-              <Route path="/login" component={LoginPage} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
               <Route path="/movies/:id" component={UpdatedMoviePage} />
               <Route path="/" component={UpdatedHomePage} />
               <Redirect from="*" to="/" />
           </Switch> 
           </GenresContextProvider>
-          </MoviesContextProvider>
-          </AuthContextProvider>    {/* NEW */}
+          </MoviesContextProvider> {/* NEW */}
       </div> 
     </div>
   </BrowserRouter>
+  </AuthContextProvider> 
   );
 };
 

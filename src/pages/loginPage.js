@@ -1,20 +1,32 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
-import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"; 
-import { AuthContext } from "../contexts/authContext" ;
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import React, { useCallback, useContext } from "react";
+import { withRouter, Redirect } from "react-router";
+import Firebase from "../components/fireBase/index";
+import { AuthContext } from "../contexts/authContext";
 
-const LoginPage = props => {
-    const context = useContext(AuthContext)
+const Login = ({ history }) => {
+  const handleLogin = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await Firebase
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
 
-    const login = () => {
-        context.authenticate("user1", "pass1");
-    };
-    const { from } = props.location.state || { from: { pathname: "/" } };
+  const { currentUser } = useContext(AuthContext);
 
-    if (context.isAuthenticated === true) {
-        return <Redirect to = {from} />;
-    }
+  if (currentUser) {
+    return <Redirect to="/movies" />;
+  }
 
     return (
         <>
@@ -22,7 +34,7 @@ const LoginPage = props => {
         <Form>
   <Form.Group controlId="formBasicEmail">
     <Form.Label>@</Form.Label>
-    <Form.Control type="username" placeholder="Enter Username" />
+    <Form.Control name="email" type="email" placeholder="Enter Email" />
     <Form.Text className="text-muted">
       We'll never share your username with anyone else.
     </Form.Text>
@@ -30,12 +42,12 @@ const LoginPage = props => {
 
   <Form.Group controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
+    <Form.Control name="password" type="password" placeholder="Password" />
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="I agree to the terms and conditions" />
   </Form.Group>
-  <Button variant="primary" type="submit" onClick={login}>
+  <Button variant="primary" type="submit" onClick={handleLogin}>
     Submit
   </Button>
 </Form>
@@ -43,4 +55,4 @@ const LoginPage = props => {
     );
 };
 
-export default LoginPage;
+export default withRouter(Login);

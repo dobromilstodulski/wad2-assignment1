@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"    // CHANGED
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import AuthContextProvider from "./contexts/authContext";
+import { AuthContextProvider } from "./contexts/authContext";
 import PrivateRoute from "./components/privateRoute"
 import UpdatedHomePage from "./pages/updatedHomePage";
 import UpdatedMoviePage from './pages/updatedMovieDetailsPage';
@@ -22,11 +22,11 @@ import MoviesContextProvider from "./contexts/moviesContext";
 
 const App = () => {
   return (
-    <AuthContextProvider>
     <BrowserRouter>
     <div className="jumbotron">
           <UpdatedSiteHeader />      {/* New Header  */}
           <div className="container-fluid">
+          <AuthContextProvider>
           <MoviesContextProvider>
           <GenresContextProvider>  {/* NEW */}
             <Switch>
@@ -41,13 +41,13 @@ const App = () => {
               <Route path="/movies/:id" component={UpdatedMoviePage} />
               <Route path="/" component={UpdatedHomePage} />
               <Redirect from="*" to="/" />
-          </Switch> 
+          </Switch>
           </GenresContextProvider>
-          </MoviesContextProvider> {/* NEW */}
+          </MoviesContextProvider>
+          </AuthContextProvider> {/* NEW */}
       </div> 
     </div>
   </BrowserRouter>
-  </AuthContextProvider> 
   );
 };
 

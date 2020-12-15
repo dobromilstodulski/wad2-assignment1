@@ -20,27 +20,22 @@ const Register = ({ history }) => {
 
   return (
         <>
-        <h2> Login Page </h2>
-        <Form>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>@</Form.Label>
-    <Form.Control name="email" type="email" placeholder="Enter Email" />
-    <Form.Text className="text-muted">
-      We'll never share your username with anyone else.
-    </Form.Text>
-  </Form.Group>
-
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control name="password" type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="I agree to the terms and conditions" />
-  </Form.Group>
-  <Button variant="primary" type="submit" onClick={handleRegister}>
-    Submit
-  </Button>
-</Form>
+      <div>
+      <br/>
+      <h2> Registration Page </h2>
+      <br/>
+      <form onSubmit={handleRegister}>
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" placeholder="Email" />
+        </label>
+        <label>
+          <span>Password</span>
+          <input name="password" type="password" placeholder="Password" />
+        </label>
+        <button type="submit">Register</button>
+      </form>
+    </div>
         </>
     );
 };

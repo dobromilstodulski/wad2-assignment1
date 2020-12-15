@@ -2,12 +2,12 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 const Firebase = firebase.initializeApp({
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_DOMAIN,
-  databaseURL: process.env.FIREBASE_DATABASE_URL,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_PROJECT,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
+  apiKey: "AIzaSyCkUaaVMI6EXmaHxkKJrzCfuGB4iQMBhqY",
+  authDomain: "wad2-reactjs-assignment1.firebaseapp.com",
+  databaseURL: "https://wad2-reactjs-assignment1-default-rtdb.firebaseio.com/",
+  projectId: "wad2-reactjs-assignment1",
+  storageBucket: "wad2-reactjs-assignment1.appspot.com",
+  messagingSenderId: "812616578355"
 });
 
 export default Firebase;

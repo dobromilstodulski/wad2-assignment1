@@ -7,8 +7,6 @@ export const AuthContextProvider = ( props ) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [pending, setPending] = useState(true);
 
-  /*
-  To FIX: The below code leaves the website hanging on a blank screen
   useEffect(() => {
     Firebase.auth().onAuthStateChanged((user) => {
       setCurrentUser(user)
@@ -19,7 +17,6 @@ export const AuthContextProvider = ( props ) => {
   if(pending){
     return <>Loading...</>
   }
-  */
 
   return (
     <AuthContext.Provider

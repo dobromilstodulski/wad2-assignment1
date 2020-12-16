@@ -9,12 +9,12 @@ import UpdatedHomePage from "./pages/updatedHomePage";
 import UpdatedMoviePage from './pages/updatedMovieDetailsPage';
 import UpdatedFavoriteMoviesPage from './pages/updatedFavouritesMoviesPage';
 import UpdatedWatchListMoviesPage from './pages/updatedWatchListMoviesPage';      // NEW
-import MovieReviewPage from "./pages/movieReviewPage";
+import UpdatedMovieReviewPage from "./pages/updatedMovieReviewPage";
 import UpdatedUpcomingMoviesListPage from './pages/updatedUpcomingMoviesPage';
 import TopRatedMoviesPage from './pages/topRatedMoviesPage';
 import Login from "./pages/loginPage";
 import Register from "./pages/registerPage";
-import AddMovieReviewPage from './pages/addMovieReviewPage';
+import UpdatedAddMovieReviewPage from './pages/updatedAddMovieReviewPage';
 import GenresContextProvider from "./contexts/genresContext";
 import MoviesContextProvider from "./contexts/moviesContext";
 
@@ -30,8 +30,8 @@ const App = () => {
           <MoviesContextProvider>
           <GenresContextProvider>  {/* NEW */}
             <Switch>
-              <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-              <Route path="/reviews/:id" component={MovieReviewPage} />
+              <Route exact path="/reviews/form" component={UpdatedAddMovieReviewPage} />
+              <Route path="/reviews/:id" component={UpdatedMovieReviewPage} />
               <PrivateRoute exact path="/movies/favorites" component={UpdatedFavoriteMoviesPage} />
               <PrivateRoute exact path="/movies/watchlist" component={UpdatedWatchListMoviesPage} />
               <Route exact path="/movies/upcoming" component={UpdatedUpcomingMoviesListPage} />

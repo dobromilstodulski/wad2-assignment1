@@ -7,8 +7,8 @@ import { AuthContextProvider } from "./contexts/authContext";
 import PrivateRoute from "./components/privateRoute"
 import UpdatedHomePage from "./pages/updatedHomePage";
 import UpdatedMoviePage from './pages/updatedMovieDetailsPage';
-import FavoriteMoviesPage from './pages/favouritesMoviesPage';
-import WatchListMoviesPage from './pages/watchListMoviesPage';      // NEW
+import UpdatedFavoriteMoviesPage from './pages/updatedFavouritesMoviesPage';
+import UpdatedWatchListMoviesPage from './pages/updatedWatchListMoviesPage';      // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
 import UpdatedUpcomingMoviesListPage from './pages/updatedUpcomingMoviesPage';
 import TopRatedMoviesPage from './pages/topRatedMoviesPage';
@@ -32,8 +32,8 @@ const App = () => {
             <Switch>
               <Route exact path="/reviews/form" component={AddMovieReviewPage} />
               <Route path="/reviews/:id" component={MovieReviewPage} />
-              <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
-              <PrivateRoute exact path="/movies/watchlist" component={WatchListMoviesPage} />
+              <PrivateRoute exact path="/movies/favorites" component={UpdatedFavoriteMoviesPage} />
+              <PrivateRoute exact path="/movies/watchlist" component={UpdatedWatchListMoviesPage} />
               <Route exact path="/movies/upcoming" component={UpdatedUpcomingMoviesListPage} />
               <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
               <Route path="/login" component={Login} />

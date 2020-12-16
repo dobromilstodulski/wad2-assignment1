@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 
 const AddToWatchListButton = ({ movie }) => {
     const context = useContext(MoviesContext);

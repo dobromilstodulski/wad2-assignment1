@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import PageTemplate from '../components/updatedTemplateMovieListPage'
-import {MoviesContext} from '../contexts/moviesContext'
-import AddToFavoritesButton from '../components/buttons/addToFavorites'
+import UpdatedPageTemplate from '../components/updatedTemplateMovieListPage';
+import {MoviesContext} from '../contexts/moviesContext';
+import AddToFavoritesButton from '../components/buttons/addToFavorites';
 
 const UpdatedMovieListPage = () => {
   const context = useContext(MoviesContext);
@@ -10,7 +10,7 @@ const UpdatedMovieListPage = () => {
   });
 
   return (
-    <PageTemplate
+    <UpdatedPageTemplate
       title="No. Movies"
       movies={movies}  /* Changed */
       action={(movie) => {

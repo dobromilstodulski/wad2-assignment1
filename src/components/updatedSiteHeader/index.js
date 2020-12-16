@@ -1,6 +1,10 @@
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
+import Firebase from "../fireBase/index"
 
 const UpdatedSiteHeader = () => {
 
@@ -21,6 +25,9 @@ const UpdatedSiteHeader = () => {
       <Nav.Link href="/movies/favorites">Favorites</Nav.Link>
       <Nav.Link href="/movies/watchlist">Watch List</Nav.Link>
     </Nav>
+    <Form inline>
+      <Button variant="outline-info" id="search" onClick={() => Firebase.auth().signOut()}>Sign Out</Button>
+    </Form>
   </Navbar>
   );
 };

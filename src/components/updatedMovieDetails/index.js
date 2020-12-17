@@ -8,7 +8,6 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../globals/fontawesome";
-import "./movieDetails.css"
 
 export default ({ movie }) => {
     return (

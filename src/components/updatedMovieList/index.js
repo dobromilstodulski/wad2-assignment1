@@ -1,7 +1,6 @@
 import React from "react";
 import Movie from "../updatedMovieCard/";
 import Row from 'react-bootstrap/Row';
-import "./movieList.css";
 
 const UpdatedMovieList = ({movies, action}) => {
   const UpdatedMovieCards = movies.map(m => (

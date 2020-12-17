@@ -48,12 +48,12 @@ Then ```npm start```
 > + On the right hand side, there is a sign out button to be able to sign out of the account.
 
 ![][movieDetail]
->Shows detailed information on a movie. Clicking the 'Show Reviews' button will display extracts from critic reviews.
->Clicking on Movie Cast shows the movie cast.
->Clicking on Movie Crew shows the movie crew.
->Clicking on Movie Trailers shows videos relating to the movie.
->Clicking on Movie Images shows photos relating to the movie.
->Clicking Similar Movies and Recommendations show both resepectively similar and recommended movies.
+> + Shows detailed information on a movie. Clicking the 'Show Reviews' button will display extracts from critic reviews.
+> + Clicking on Movie Cast shows the movie cast.
+> + Clicking on Movie Crew shows the movie crew.
+> + Clicking on Movie Trailers shows videos relating to the movie.
+> + Clicking on Movie Images shows photos relating to the movie.
+> + Clicking Similar Movies and Recommendations show both resepectively similar and recommended movies.
 
 ![][movieCast]
 >Shows the cast with a picture of them, popularity and the character they played.

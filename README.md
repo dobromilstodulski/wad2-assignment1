@@ -25,6 +25,7 @@ Name: Dobromil Stodulski
 + Favourites and Watch List - these pages don't appear to show the movies that the user has added.
 + Firebase - the configuration isn't stored in a .env file due to me running into diffciulties, as I couldn't get Firebase to process my details from that file. As a solution I placed my configuration into the file itself. Github commits back this up. 
 + Movie Cast/Crew - These take you nowhere, I haven't implemented anything.
++ Top Rated - Add To Watch List button doesn't work as it's not implemented.
 
 ## API Data Model.
 

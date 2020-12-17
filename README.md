@@ -43,9 +43,9 @@ Then ```npm start```
 ### UI Design.
 
 ![][mainView]
->Main view of the website with the updated site header.
->New page added : top rated.
->On the right hand side, there is a sign out button to be able to sign out of the account.
+> + Main view of the website with the updated site header.
+> + New page added : top rated.
+> + On the right hand side, there is a sign out button to be able to sign out of the account.
 
 ![][movieDetail]
 >Shows detailed information on a movie. Clicking the 'Show Reviews' button will display extracts from critic reviews.

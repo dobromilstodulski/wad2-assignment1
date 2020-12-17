@@ -16,9 +16,9 @@ Name: Dobromil Stodulski
 
 ## Setup requirements.
 
-I have used react-bootstrap so: ```npm install react-bootstrap```
-I have also used Firebase: ```npm install firebase```
-Then ```npm start```
++ I have used react-bootstrap so: ```npm install react-bootstrap```
++ I have also used Firebase: ```npm install firebase```
++ Then ```npm start```
 
 ## Known Issues / Notes.
 

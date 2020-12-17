@@ -10,7 +10,7 @@ export const getMovies = () => {
   
   export const getMovie = id => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&append_to_response=credits,images,recommendations,similar,videos,watch/providers`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&append_to_response=credits,images,recommendations,similar,videos`
     ).then(res => res.json());
   };
   

@@ -1,9 +1,8 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import Firebase from "../components/fireBase/index";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
+//Followed the following tutorial : https://www.youtube.com/watch?v=unr4s3jd9qA | https://github.com/satansdeer/react-firebase-auth/tree/master/src
 const Register = ({ history }) => {
   const handleRegister = useCallback(async event => {
     event.preventDefault();

@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 
+//Followed the following tutorial : https://www.youtube.com/watch?v=unr4s3jd9qA | https://github.com/satansdeer/react-firebase-auth/tree/master/src
 const Firebase = firebase.initializeApp({
   apiKey: "AIzaSyCkUaaVMI6EXmaHxkKJrzCfuGB4iQMBhqY",
   authDomain: "wad2-reactjs-assignment1.firebaseapp.com",

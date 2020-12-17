@@ -1,10 +1,10 @@
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
+import { Link } from "react-router-dom";
 import Firebase from "../components/fireBase/index";
 import { AuthContext } from "../contexts/authContext";
 
+//Followed the following tutorial : https://www.youtube.com/watch?v=unr4s3jd9qA | https://github.com/satansdeer/react-firebase-auth/tree/master/src
 const Login = ({ history }) => {
   const handleLogin = useCallback(
     async event => {
@@ -45,6 +45,7 @@ const Login = ({ history }) => {
         </label>
         <button type="submit">Login</button>
       </form>
+      <Link to={`/register`}> Don't have an account? </Link> 
     </div>
         </>
     );

@@ -10021,5 +10021,7 @@ storiesOf("Home Page/MovieList", module)
   });
 
 storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
+  <MemoryRouter>
   <UpdatedMovieDetails movie={sample} />
+  </MemoryRouter>
 ));

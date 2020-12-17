@@ -42,7 +42,7 @@ Then ```npm start```
 
 ### UI Design.
 
-![][movieView]
+![][mainView]
 >Main view of the website with the updated site header.
 >New page added : top rated.
 >On the right hand side, there is a sign out button to be able to sign out of the account.
@@ -133,7 +133,7 @@ Then ```npm start```
 [similarMoviesBoxed]: ./public/similarMovies.png
 [similarMovies]: ./public/similarMoviesNotBoxed.png
 [videos]: ./public/videos.png
-[loginPageBoxed]: ./public/loginpage.png
-[loginPage]: ./public/loginPageNotBoxed/png
-[registration]: ./public/registration.png
-[movieView]: ./public/movieView.png
+[loginPageBoxed]: ./public/loginPage.png
+[loginPage]: ./public/loginPageNotBoxed.png
+[registration]: ./public/registrationPage.png
+[mainView]: ./public/mainView.png
